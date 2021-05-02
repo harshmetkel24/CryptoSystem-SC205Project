@@ -6,6 +6,27 @@
     box-sizing: border-box;
 }
 
+header {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+
+    left: 10vw;
+    font-size: 3vmax;
+
+    margin-top: -5%;
+    margin-bottom: -4%;
+}
+h1 {
+    text-align: center;
+}
+.complementary {
+    color: yellow;
+}
+.main-content {
+    position: relative;
+    top: 100px;
+}
 body {
     background-color: white;
 }
@@ -14,20 +35,16 @@ body {
     color: var(--green);
 }
 .shiftCipher {
+    clear: both;
+    display: inline-grid;
+    grid-template-columns: auto;
+    grid-gap: 10px 80px;
     border: 0.2em solid var(--green);
-    height: fit-content;
     width: 90%;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 2%;
     font-size: 1em;
-    padding: 2% 3%;
+    padding: 0% 4% 2% 3%;
 }
 input {
     margin: 1% 2%;
-}
-#encryptShift {
-    width: 70%;
-    display: inline-block;
-    position: relative;
-    top: 35px;
 }

@@ -3,37 +3,48 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Crypto System</title>
         <link rel="stylesheet" href="Crypto.css" class="css" />
     </head>
     <body>
-        <h1 class="main-heading">DM</h1>
-        <div class="shiftCipher" id="shiftCipher">
-            <form action="">
+        <header>
+            <h1 class="main-heading">DM</h1>
+            <h1 class="complementary">-DiscreteMathemetics</h1>
+        </header>
+        <div class="main-content">
+            <div class="shiftCipher" id="shiftCipher">
                 <h3>Shift-Ciphers</h3>
                 <label for="Incrementer">Enter incrementer:</label>
                 <input type="number" name="Incrementer" id="incrementerShift" />
-                <br />
                 <label for="encryptShift">Enter text to be ecnrypted:</label>
                 <textarea name="encryptShift" id="encryptShift"></textarea>
-                <div class="ansEncryptShift">Encrypted Text:</div>
-            </form>
-        </div>
-        <div class="affineCipher" id="affineCipher">
-            <form action="">
-                <h3>Affine-Ciphers</h3>
-                <label for="Incrementer">Enter incrementer:</label>
-                <input
-                    type="number"
-                    name="Incrementer"
-                    id="incrementerAffine"
-                />
-                <br />
-                <label for="multiplier">Enter multiplier:</label>
-                <input type="number" name="multiplier" id="multiplier" />
-                <label for="encryptAffine">Enter text to be increypted</label>
-            </form>
-        </div>
+                <button type="button" id="encryptShiftBtn">
+                    Show Encrypted text
+                </button>
+                <div class="encrptedText" id="ecryptedText"></div>
+                <button type="button" class="decryptShift" id="decryptShift">
+                    Show Decrypted Text
+                </button>
+                <div class="decryptedText" id="decryptedText"></div>
+            </div>
+            <div class="affineCipher" id="affineCipher">
+                <form action="">
+                    <h3>Affine-Ciphers</h3>
+                    <label for="Incrementer">Enter incrementer:</label>
+                    <input
+                        type="number"
+                        name="Incrementer"
+                        id="incrementerAffine"
+                    />
+                    <br />
+                    <label for="multiplier">Enter multiplier:</label>
+                    <input type="number" name="multiplier" id="multiplier" />
+                    <label for="encryptAffine"
+                        >Enter text to be increypted</label
+                    >
+                </form>
+            </div>
+        </section>
     </body>
     <script src="Crypto.js"></script>
 </html>
