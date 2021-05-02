@@ -1,0 +1,33 @@
+:root {
+    --green: rgb(3, 167, 3);
+    font-family: cursive;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+.main-heading {
+    color: var(--green);
+}
+.shiftCipher {
+    border: 0.2em solid var(--green);
+    height: fit-content;
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 1em;
+    padding: 2% 3%;
+}
+input {
+    margin: 1% 2%;
+}
+#encryptShift {
+    width: 70%;
+    display: inline-block;
+    position: relative;
+    top: 35px;
+}

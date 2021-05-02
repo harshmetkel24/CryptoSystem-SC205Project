@@ -1,0 +1,39 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="Crypto.css" class="css" />
+    </head>
+    <body>
+        <h1 class="main-heading">DM</h1>
+        <div class="shiftCipher" id="shiftCipher">
+            <form action="">
+                <h3>Shift-Ciphers</h3>
+                <label for="Incrementer">Enter incrementer:</label>
+                <input type="number" name="Incrementer" id="incrementerShift" />
+                <br />
+                <label for="encryptShift">Enter text to be ecnrypted:</label>
+                <textarea name="encryptShift" id="encryptShift"></textarea>
+                <div class="ansEncryptShift">Encrypted Text:</div>
+            </form>
+        </div>
+        <div class="affineCipher" id="affineCipher">
+            <form action="">
+                <h3>Affine-Ciphers</h3>
+                <label for="Incrementer">Enter incrementer:</label>
+                <input
+                    type="number"
+                    name="Incrementer"
+                    id="incrementerAffine"
+                />
+                <br />
+                <label for="multiplier">Enter multiplier:</label>
+                <input type="number" name="multiplier" id="multiplier" />
+                <label for="encryptAffine">Enter text to be increypted</label>
+            </form>
+        </div>
+    </body>
+    <script src="Crypto.js"></script>
+</html>
