@@ -1,31 +1,35 @@
 :root {
     --green: rgb(3, 167, 3);
     font-family: cursive;
-}
-* {
     box-sizing: border-box;
 }
 
 header {
     display: flex;
     position: fixed;
+    float: inherit;
     flex-direction: row;
-
-    left: 10vw;
-    font-size: 3vmax;
-
-    margin-top: -5%;
-    margin-bottom: -4%;
+    left: 20vw;
+    font-size: 2vmax;
+    background-color: white;
+    margin-top: -10vmax;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 10%;
 }
 h1 {
     text-align: center;
+    text-decoration: underline black;
+    border: 2px solid white;
+    background-attachment: fixed;
 }
 .complementary {
-    color: yellow;
+    color: rgb(255, 255, 0);
+    text-decoration: underline rgb(231, 215, 215);
 }
 .main-content {
+    margin-top: 100px;
     position: relative;
-    top: 100px;
 }
 body {
     background-color: white;
@@ -34,11 +38,18 @@ body {
 .main-heading {
     color: var(--green);
 }
-.shiftCipher {
-    clear: both;
-    display: inline-grid;
-    grid-template-columns: auto;
-    grid-gap: 10px 80px;
+p {
+    text-align: justify;
+    text-justify: kashida;
+}
+input,
+button {
+    margin: 2%;
+}
+.shiftCipher,
+.affineCipher {
+    display: flex;
+    flex-direction: column;
     border: 0.2em solid var(--green);
     width: 90%;
     margin: 2%;
@@ -47,4 +58,8 @@ body {
 }
 input {
     margin: 1% 2%;
+}
+.math {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
 }

@@ -14,6 +14,14 @@
         <div class="main-content">
             <div class="shiftCipher" id="shiftCipher">
                 <h3>Shift-Ciphers</h3>
+                <p>
+                    Shift ciphers is one of the simplest and most widely known
+                    encryption techniques. It is a type of substitution cipher
+                    in which each letter in the plaintext is replaced by a
+                    letter some fixed number of positions down the alphabet.
+                    Like if we take incrementer 3, then A will become D (A
+                    shifted 3 positions ahead.)
+                </p>
                 <label for="Incrementer">Enter incrementer:</label>
                 <input type="number" name="Incrementer" id="incrementerShift" />
                 <label for="encryptShift">Enter text to be ecnrypted:</label>
@@ -21,30 +29,67 @@
                 <button type="button" id="encryptShiftBtn">
                     Show Encrypted text
                 </button>
-                <div class="encrptedText" id="ecryptedText"></div>
+
+                <div class="encryptedText" id="ecryptedText"></div>
                 <button type="button" class="decryptShift" id="decryptShift">
                     Show Decrypted Text
                 </button>
                 <div class="decryptedText" id="decryptedText"></div>
             </div>
             <div class="affineCipher" id="affineCipher">
-                <form action="">
                     <h3>Affine-Ciphers</h3>
+                    <p>
+                        The affine cipher is type of monoalphabateic
+                        substitutioon cipher, where each letter in an alphabet
+                        is mapped to its numeric equivalent, encrypted using a
+                        simple mathematical function, and converted back to a
+                        letter. The fommula used means that each letter encrypts
+                        to one other letter , and back again, meaning teh cipher
+                        is essenctially a standard substitution cipher with a
+                        rule governing whic letter goes to which. As such , it
+                        has teh weaknesses of all substitution ciphers. Each
+                        letter is ecnciphered with the function
+                        <span class="math">(ax+b)mod26</span>, wehre
+                        <span class="math">b</span> is the magnitude of the
+                        shift.
+                    </p>
+                    <p>
+                        Also one important point to ve mentionned here is that
+                        as we are multipying with an integer in
+                        <span class="math">Z-26</span>. So decryption of the
+                        encrypted text is only possible if inverse of multiplier
+                        exist in <span class="math">Z-26</span>. So only
+                        possible values of values of multiplier are
+                        <span class="math"
+                            >a = 3, 5, 7, 9, 11, 15, 17, 19, 21, 23 and
+                            25</span
+                        >
+                    </p>
+                    <p>Below is the elementwise list of iverse of all possible multipliers.</p>
+                    <ul>
+                        <li><strong>a = 3 => x = 9</strong></li>
+                        <li><strong>a = 5 => x = 21</strong></li>
+                        <li><strong>a = 7 => x = 15</strong></li>
+                        <li><strong>a = 9 => x = 3</strong></li>
+                        <li><strong>a = 11 => x = 23</strong></li>
+                        <li><strong>a = 15 => x = 7</strong></li>
+                        <li><strong>a = 19 => x = 11</strong></li>
+                        <li><strong>a = 23 => x = 25</strong></li>
+                    </ul>
                     <label for="Incrementer">Enter incrementer:</label>
                     <input
                         type="number"
                         name="Incrementer"
                         id="incrementerAffine"
                     />
-                    <br />
                     <label for="multiplier">Enter multiplier:</label>
                     <input type="number" name="multiplier" id="multiplier" />
-                    <label for="encryptAffine"
-                        >Enter text to be increypted</label
-                    >
-                </form>
+                    <label for="encryptAffine"></label>Enter text to be increypted</label>
+                    <textarea name="" id="ecnryptAffine"></textarea>
+                    <button id="encryptAffineBtn">Show ecnrypted text</button>
+                    <button id="decryptAffineBtn" type="button">Show decnrypted text</button>
             </div>
-        </section>
+        </div>
     </body>
     <script src="Crypto.js"></script>
 </html>

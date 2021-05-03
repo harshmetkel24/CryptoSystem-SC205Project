@@ -2,7 +2,8 @@ let arrTemp1;
 document.getElementById('encryptShift').addEventListener('input', () => {
     let text1 = document.getElementById('encryptShift').value;
     let len1 = text1.length;
-    let smaller = false;
+    let smaller = [];
+    for (let i = 0; i < len1; i++) smaller[i] = false;
     let incrementer1 = document.getElementById('incrementerShift').value;
     arrTemp1 = text1.split('');
     for (let i = 0; i < len1; i++) {
@@ -15,13 +16,14 @@ document.getElementById('encryptShift').addEventListener('input', () => {
             arrTemp1[i] = parseInt(text1.charCodeAt(i)) - 97;
             arrTemp1[i] = (parseInt(arrTemp1[i]) + parseInt(incrementer1)) % 26;
             console.log(arrTemp1);
-            smaller = true;
+            smaller[i] = true;
             continue;
         }
         arrTemp1[i] = parseInt(text1.charCodeAt(i)) - 65;
         arrTemp1[i] = (parseInt(arrTemp1[i]) + parseInt(incrementer1)) % 26;
         console.log(arrTemp1);
     }
+    console.table(smaller);
     // function to add the html of cncrypted text
     let text2 = '';
     document.getElementById('encryptShiftBtn').addEventListener('click', () => {
@@ -30,7 +32,7 @@ document.getElementById('encryptShift').addEventListener('input', () => {
                 text2 += String.fromCharCode(arrTemp1[i]);
                 continue;
             }
-            if (smaller) {
+            if (smaller[i]) {
                 text2 += String.fromCharCode(arrTemp1[i] + 97);
                 continue;
             }
@@ -50,7 +52,7 @@ document.getElementById('encryptShift').addEventListener('input', () => {
                 decrypt += ' ';
                 continue;
             }
-            if (smaller) {
+            if (smaller[i]) {
                 ans[i] = parseInt(text2.charCodeAt(i)) - 97;
                 ans[i] = (ans[i] - incrementer1 + 26) % 26;
                 decrypt += String.fromCharCode(ans[i] + 97);
@@ -65,4 +67,11 @@ document.getElementById('encryptShift').addEventListener('input', () => {
             'decryptedText'
         ).innerHTML = `Decrypted text is: ${decrypt}`;
     });
+});
+
+document.getElementById('ecnryptAffine').addEventListener('click', () => {
+    let text1 = document.getElementById('ecnryptAffine').value;
+    let len1 = text1.length;
+    let smaller = [];
+    for (let i = 0; i < len1; i++) smaller[i] = false;
 });
