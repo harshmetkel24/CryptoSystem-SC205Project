@@ -56,10 +56,24 @@ button {
     font-size: 1em;
     padding: 0% 4% 2% 3%;
 }
+.affineCipher {
+    height: 700px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
 input {
     margin: 1% 2%;
 }
 .math {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
+}
+marquee {
+    color: white;
+    font: caption;
+    background-color: var(--green);
+    position: sticky;
+    bottom: 0%;
+    margin: auto;
+    padding: 0.2rem;
 }
