@@ -8,8 +8,8 @@
     </head>
     <body>
         <header>
-            <h1 class="main-heading">DM</h1>
-            <h1 class="complementary">-DiscreteMathemetics</h1>
+            <h1 class="main-heading">ED</h1>
+            <h1 class="complementary">-EncodingDecoding</h1>
         </header>
         <div class="main-content">
             <div class="shiftCipher" id="shiftCipher">
@@ -93,6 +93,55 @@
                     <button id="decryptAffineBtn" type="button">Show decnrypted text</button>
                     <div id="decryptAffine"></div>
             </div>
+            <div class="rsa-crypto" id="rsa-crypto">
+                <h3>RSA-Algorithm for small primes and sigle input message:</h3>
+                <h4>Instructions</h5>
+                <ol>
+                    <li>This model is best carried out by two persons. Name them Alice and Bob.</li>
+                    <li>Alice will pick two available primes. Public and private keys will be generated based on primes.</li>
+                    <li>Record the public key containing the exponent value, E and the product of the primes, N. And , record teh private key, D.</li>
+                    <li>Give E and N to Bob (your partner).</li>
+                    <li>Bob will go to another page to pick a letter to encrypt. Enter E and N. The encrypted message / number will be number will be generated.</li>
+                    <li>Bob will send or give the encypted message to Alice.</li>
+                    <li>Alice will go to decryption page. Enter the message, D and N. The message will be decrypted to the original letter. Later, Alice can check with Bob to see if it the right letter.</li>
+                </ol>
+                <span class="primeOptions">
+                    <label for="prime1">Prime 1</label>
+                    <select name="prime1" id="prime1">
+                        <option value="#" selected>select p1</option>
+                    <option value="3">3</option>
+                    <option value="11">11</option>
+                    <option value="17">17</option>
+                </select>
+                <label for="pirme2">Prime 2</label>
+                <select name="prime2" id="prime2">
+                    <option value="#" selected> select p2</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="13">13</option>
+                </select>
+                </span>
+                <button id="giveKeys">Get-keys</button>
+                <div id="keys"></div>
+            </div>
+            <!-- <div class="lempel-ziv" id="lempel-ziv">
+                <table>
+                    <tr>
+                        <td><label for="textAreaToCompress">Text to compress:</label></td>
+                        <td><label for="textAreaDataCompressed">Data Compressed</label></td>                
+                    </tr>
+                    <tr>
+                        <td><textarea name="" id="textAreaToCompress" cols="30" rows="15"></textarea></td>
+                        <td><textarea name="" id="textAreaDataCompressed" cols="30" rows="15"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Clear" id="buttonClearTextToCompress">
+                        <input type="button" value="Compress" id="buttonCompress"></td> 
+                        <td><input type="button" value="Decompress" id="buttonDecompress">
+                        <input type="button" value="Clear" id="buttonToClearDataCompressed"></td>
+                    </tr>                  
+                </table>
+            </div> -->
         </div>
         <marquee behavior="sliding" direction="left" scrollamount="10" ><strong>Created by Harshkumar Metkel BTech-2020 202001154.</strong></marquee>
     </body>

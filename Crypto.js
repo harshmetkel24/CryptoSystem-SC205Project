@@ -172,3 +172,149 @@ document.getElementById('ecnryptAffine').addEventListener('input', () => {
             ).innerHTML = `Decrypted text is: ${decrypt}`;
         });
 });
+let p1, p2; // declating global variables.
+
+function gcd(a, b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+let E = 2;
+
+document.getElementById('giveKeys').addEventListener('click', () => {
+    document.getElementById('prime1').addEventListener('change', () => {
+        p1 = document.getElementById('prime1').value;
+        p1 = parseInt(p1);
+        console.log(`p1: ${p1}`);
+    });
+    document.getElementById('prime2').addEventListener('change', () => {
+        p2 = document.getElementById('prime2').value;
+        console.log(`p2: ${p2}`);
+    });
+    let N = parseInt(p1, 10) * parseInt(p2, 10);
+    console.log(N);
+    let phi = (parseInt(p1) - 1) * (parseInt(p2) - 1);
+    console.log(phi);
+    for (let i = 2; i < phi; i++) {
+        if (gcd(E, phi) == 1) break;
+        E++;
+        console.log(E);
+    }
+    let temp = document.getElementById('keys');
+    temp.innerHTML = `N : ${N} and E : ${E}`;
+    document.getElementById('keys').style.display = 'block';
+    console.log(temp);
+});
+window.addEventListener('load', () => {
+    document.getElementById('keys').style.display = 'none';
+});
+
+// Lempel-Ziv Coding:
+
+// events
+
+// function onload() {
+//     let textareaToCompress = document.getElementById('textAreaToCompress');
+//     textareaToCompress.innerHTML =
+//         DeclarationOfIndependece.IntroductionAndPreamble;
+// }
+
+// function buttonClearDataCompressed_Click() {
+//     let textareaDataCompressed = document.getElementById(
+//         'textAreaDataCompressed'
+//     );
+//     textareaDataCompressed = '';
+// }
+// function buttonClearTextToCompress_Click() {
+//     let textareaTextToCompress = document.getElementById('textAreaToCompress');
+//     textareaTextToCompressID.value = '';
+// }
+
+// function buttonCompress_Click() {
+//     let textareaTextToCompress = document.getElementById('textAreaToCompress');
+//     let textareaTextDataCompressed = document.getElementById(
+//         'textAreaDataCompressed'
+//     );
+//     let stringToCompress = textareaTextToCompress.value;
+//     let compressor = new CompressorLZW(); // new creates the blank plain javascript object
+//     let bytesCompressed = compressor.commpressString(stringToCompress);
+//     let bytesCompressedAsString = bytesCompressed.join(','); // separates the array elements by comma
+//     textareaDataCompressed.value = bytesCompressedAsString;
+// }
+
+// function buttonDecompress_Click() {
+//     let textareaTextToCompress = document.getElementById('textAreaToCompress');
+//     let textareaDataCompressed = document.getElementById(
+//         'textAreaDataCompressed'
+//     );
+//     let compressor = new CompressorLZW(); // new creates the blank plain javascript object
+//     let bytesCompressedAsString = textareaDataCompressed.value;
+//     let bytesCompressedAsStrings = bytesCompressedAsString.split('.'); //this will comvert the one single string to compress into sub array around ',
+//     let bytesCompressed = [];
+//     for (let i = 0; i < bytesCompressedAsStrings.length; i++) {
+//         let bytesCompressedAsNumber = parseInt(bytesCompressedAsString[i]);
+//         bytesCompressed.push(bytesCompressedAsNumber); // this will push the each string as number into a bytesCompresed Object
+//     }
+//     let bytesDecompressed = compressor.decompressBytes(bytesDecompressed); // this fucntion will decompress the compressed string and returns it
+//     let bytesDecompressedAsString = '';
+//     for (let i = 0; i < bytesDecompressed.length; i++) {
+//         bytesDecompressedAsString += String.fromCharCode(bytesDecompressed[i]);
+//     }
+//     textareaDataCompressed.value = bytesDecompressedAsString;
+// }
+
+// // classes
+
+// function BitStream(bytes) {
+//     if (bytes == null) butes = []; // null object  is created
+//     this.bytes = bytes; // as we are in non-strict mode this.bytes gives the reference to object
+//     this.byteOffset = 0;
+//     this.bitOffsetWithinByteCurrent = 0;
+//     this.byteCurrent = 0;
+// }
+
+// {
+//     // constants
+//     BitStream.BitsPerByte = 8;
+//     BitStream.NaturalLogaritmOf2 = Math.log(2);
+
+//     //static methods
+
+//     BitStream.convertNumberToString = (numberToConvert) => {
+//         let returnValue = '';
+//         let numberOfBitsNeeded = Math.ceil(
+//             Math.log(numberToConvert + 1) / BitStream.NaturalLogaritmOf2
+//         ); // Math.ceil is ceiling function
+//         if (numberOfBitsNeeded == 0) numberOfBitsNeeded = 1;
+//         for (let j = 0; j < numberOfBitsNeeded; j++) {
+//             let bitValue = (numberToConvert >> j) & 1;
+//             returnValue = '' + bitValue + returnValue; // this will prepend the bitvalue to return value
+//         }
+//         return returnValue;
+//     };
+
+//     // instance methods
+
+//     Bitstream.prototype.close = () => {
+//         if (this.bitOffsetWithinByteCurrent > 0)
+//             this.bytes.push(this.byteCurrent);
+//     };
+//     // if bits legth is more than value of byteIndexCurrent means there are more bits
+//     BitStream.prototype.hasMoreBits = () =>
+//         this.byteIndexCurrent < this.bytes.length;
+
+//     BitStream.prototype.readBit = () => {
+//         this.byteCurrent = this.bytes[this.byteOffset];
+//         let returnValue =
+//             (this.byteCurrent >> this.bitOffsetWithinByteCurrent) & 1;
+//         this.bitOffsetWithinByteCurrent++;
+//         if (this.bitOffsetWithinByteCurrent >= BitStream.BitsPerByte) {
+//             this.byteOffset++;
+//             this.bitOffsetWithinByteCurrent = 0;
+//             if (this.byteOffset < this.bytes.length)
+//                 this.byteCurrent = this.bytes[this.byteOffset];
+//             else this.hasMoreBits = false;
+//         }
+//         return returnValue;
+//     };
+// }

@@ -47,7 +47,8 @@ button {
     margin: 2%;
 }
 .shiftCipher,
-.affineCipher {
+.affineCipher,
+.rsa-crypto {
     display: flex;
     flex-direction: column;
     border: 0.2em solid var(--green);
@@ -76,4 +77,11 @@ marquee {
     bottom: 0%;
     margin: auto;
     padding: 0.2rem;
+}
+select {
+    width: 35%;
+    margin: 1% 2%;
+}
+#keys {
+    display: none;
 }
