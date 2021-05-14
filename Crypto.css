@@ -3,7 +3,6 @@
     font-family: cursive;
     box-sizing: border-box;
 }
-
 header {
     display: flex;
     position: fixed;
@@ -62,6 +61,11 @@ button {
     overflow: scroll;
     scroll-behavior: smooth;
 }
+.rsa-crypto {
+    height: 500px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
 input {
     margin: 1% 2%;
 }
@@ -84,4 +88,8 @@ select {
 }
 #keys {
     display: none;
+}
+.animation {
+    color: red;
+    transition: 1.5s ease-in-out;
 }

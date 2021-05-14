@@ -1,5 +1,15 @@
 let arrTemp1;
 let arrTemp2;
+
+window.addEventListener('scroll', (e) => {
+    let scroll = this.scrollY;
+    if (scroll >= 200) {
+        document.getElementById('heading1').classList.toggle('animation');
+
+        document.getElementById('heading2').classList.toggle('animation');
+    }
+    console.log(scroll);
+});
 document.getElementById('encryptShift').addEventListener('input', () => {
     let text1 = document.getElementById('encryptShift').value;
     let len1 = text1.length;
@@ -172,7 +182,10 @@ document.getElementById('ecnryptAffine').addEventListener('input', () => {
             ).innerHTML = `Decrypted text is: ${decrypt}`;
         });
 });
-let p1, p2; // declating global variables.
+
+// RSA CRYPTO sYSTEM
+
+var p1, p2; // declating global variables.
 
 function gcd(a, b) {
     if (b == 0) return a;
@@ -180,18 +193,18 @@ function gcd(a, b) {
 }
 
 let E = 2;
-
+document.getElementById('prime1').addEventListener('input', () => {
+    p1 = document.getElementById('prime1').value;
+    p1 = parseInt(p1);
+    console.log(`p1: ${p1}`);
+});
+document.getElementById('prime2').addEventListener('input', () => {
+    p2 = document.getElementById('prime2').value;
+    p2 = parseInt(p2);
+    console.log(`p2: ${p2}`);
+});
 document.getElementById('giveKeys').addEventListener('click', () => {
-    document.getElementById('prime1').addEventListener('change', () => {
-        p1 = document.getElementById('prime1').value;
-        p1 = parseInt(p1);
-        console.log(`p1: ${p1}`);
-    });
-    document.getElementById('prime2').addEventListener('change', () => {
-        p2 = document.getElementById('prime2').value;
-        console.log(`p2: ${p2}`);
-    });
-    let N = parseInt(p1, 10) * parseInt(p2, 10);
+    let N = parseInt(p1) * parseInt(p2);
     console.log(N);
     let phi = (parseInt(p1) - 1) * (parseInt(p2) - 1);
     console.log(phi);
@@ -201,12 +214,77 @@ document.getElementById('giveKeys').addEventListener('click', () => {
         console.log(E);
     }
     let temp = document.getElementById('keys');
-    temp.innerHTML = `N : ${N} and E : ${E}`;
+    temp.innerHTML = `Public keys:<br>N : ${N} and E : ${E}`;
     document.getElementById('keys').style.display = 'block';
     console.log(temp);
+    let privateKey;
+    privateKey = parseInt((2 * phi + 1) / E);
+    console.log(`D = ${privateKey}`);
+    let message,
+        messageArr = [];
+    document.getElementById('message').addEventListener('input', () => {
+        message = document.getElementById('message').value;
+        messageArr = message.split('');
+        for (let i = 0; i < message.length; i++) {
+            messageArr[i] = message.charCodeAt(i) - 65;
+        }
+        console.log(`messageArr = ${messageArr}`);
+    });
+    var ecnryptedMessageArr = [];
+    var ecnryptedMessage = '';
+
+    document.getElementById('encryptbtn').addEventListener('click', () => {
+        for (let i = 0; i < messageArr.length; i++) {
+            ecnryptedMessageArr[i] =
+                (Math.pow(parseInt(messageArr[i]), E) % N) % 26;
+            console.log(ecnryptedMessageArr);
+            ecnryptedMessage += String.fromCharCode(
+                ecnryptedMessageArr[i] + 65
+            );
+        }
+        document.getElementById(
+            'encyptedtedtextRSA'
+        ).innerHTML = `Encrypted text using public keys is:<br>${ecnryptedMessage}`;
+    });
+    let decryptedMessageArr = [];
+    let decryptedMessage = '';
+    document;
+    decryptbtn.addEventListener('click', () => {
+        for (let i = 0; i < ecnryptedMessageArr.length; i++) {
+            console.log(`privateKey: ${privateKey}`);
+            decryptedMessageArr[i] =
+                Math.pow(
+                    parseInt(ecnryptedMessageArr[i]),
+                    parseInt(privateKey)
+                ) % N;
+            console.log(decryptedMessageArr);
+            decryptedMessage += String.fromCharCode(
+                decryptedMessageArr[i] + 65
+            );
+            console.log(decryptedMessage);
+        }
+        document.getElementById(
+            'decryptedtextRSA'
+        ).innerHTML = `Decrypted text is:<br>
+        ${decryptedMessage}`;
+    });
 });
+// on reload the display of keys become none again means hidden
 window.addEventListener('load', () => {
+    document.getElementsByTagName('textarea').value = '';
+    document.getElementsByTagName('text').value = '';
     document.getElementById('keys').style.display = 'none';
+    document.getElementById('prime1').innerHTML = `
+    <option value="#" selected>select p1</option>
+    <option value="3">3</option>
+    <option value="11">11</option>
+    <option value="17">17</option>`;
+    document.getElementById(
+        'prime2'
+    ).innerHTML = ` <option value="#" selected> select p2</option>
+    <option value="5">5</option>
+    <option value="7">7</option>
+    <option value="13">13</option>`;
 });
 
 // Lempel-Ziv Coding:

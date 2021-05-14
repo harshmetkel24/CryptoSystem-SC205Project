@@ -8,8 +8,8 @@
     </head>
     <body>
         <header>
-            <h1 class="main-heading">ED</h1>
-            <h1 class="complementary">-EncodingDecoding</h1>
+            <h1 class="main-heading" id="heading1">ED</h1>
+            <h1 class="complementary"id="heading2">-EncodingDecoding</h1>
         </header>
         <div class="main-content">
             <div class="shiftCipher" id="shiftCipher">
@@ -105,6 +105,9 @@
                     <li>Bob will send or give the encypted message to Alice.</li>
                     <li>Alice will go to decryption page. Enter the message, D and N. The message will be decrypted to the original letter. Later, Alice can check with Bob to see if it the right letter.</li>
                 </ol>
+                <strong>Note: For now program can only successfully encypt and decrypt the text without space and only for small prime numbers.</strong>
+                <br>
+                <p>Though this code generates the encypted text for all prime numbers listed above. But decryption is not all possible prime numbers :(</p>
                 <span class="primeOptions">
                     <label for="prime1">Prime 1</label>
                     <select name="prime1" id="prime1">
@@ -123,6 +126,12 @@
                 </span>
                 <button id="giveKeys">Get-keys</button>
                 <div id="keys"></div>
+                <label for="message">Text to be encypted:</label>
+                <input type="text" name="message" id="message">
+                <button id="encryptbtn">Get encypted</button>
+                <div id="encyptedtedtextRSA"></div>
+                <button id="decryptbtn">Get decrypted</button>
+                <div id="decryptedtextRSA"></div>
             </div>
             <!-- <div class="lempel-ziv" id="lempel-ziv">
                 <table>
